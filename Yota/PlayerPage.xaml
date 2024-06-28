@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:Yota"
+             x:Class="Yota.PlayerPage">
+
+    <StackLayout VerticalOptions="Fill" HorizontalOptions="CenterAndExpand">
+        <Label 
+            x:Name="AlbumName"
+            Text="Nome do Álbum"
+            HorizontalOptions="Center"
+            FontSize="Small"
+            Margin="50"
+        />
+
+        <Image 
+            Source="default_playlist.png"
+            HeightRequest="200"
+            WidthRequest="200" 
+            Aspect="AspectFit"
+            Margin="25"    
+        />
+
+        <Label x:Name="MusicName"
+               Text="Nome da música" 
+               HorizontalOptions="Center"
+               FontSize="Small"
+               Margin="30"
+        />
+
+        <Label x:Name="ArtistName"
+           Text="Nome do Artista" 
+           HorizontalOptions="Center"
+           FontSize="Micro"
+        />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="50" Margin="30">
+            <Button x:Name="PreviousButton"
+                    Text="⏮"
+                    CornerRadius="40"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    BackgroundColor="#13425C"
+                    TextColor="White"
+                    Clicked="OnPreviousClicked" />
+
+            <Button x:Name="PlayPauseButton"
+                    Text="⏯"
+                    CornerRadius="40"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    BackgroundColor="#13425C"
+                    TextColor="White"
+                    Clicked="OnPlayPauseClicked" />
+
+            <Button x:Name="NextButton"
+                    Text="⏭"
+                    CornerRadius="40"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    BackgroundColor="#13425C"
+                    TextColor="White"
+                    Clicked="OnNextClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

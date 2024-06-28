@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Yota.FlowPage"
+             Title="FlowPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#13425C">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image 
+        x:Name="FlowPicture"
+        Source="default_playlist.png" 
+        HeightRequest="120"
+        WidthRequest="120"
+        Aspect="AspectFit"
+        Grid.Column="0" />
+
+            <StackLayout 
+            Grid.Column="1"
+            VerticalOptions="Center" 
+            Padding="20">
+
+                <Label  
+                Text="Flow" 
+                TextColor="White" 
+                FontSize="Large" 
+                FontAttributes="Bold" />
+                <Label  
+                Text="Separamos para você as músicas que mais combinam com seus ouvidos! Ah, também sugerimos algumas novas para te manter atualizado no seu mundo musical! ;)" 
+                TextColor="White" 
+                FontSize="Micro" />
+                <Label 
+                x:Name="TotalDuration"
+                TextColor="White" 
+                FontSize="Micro" />
+            </StackLayout>
+
+            <Grid.Shadow>
+                <Shadow Brush="Black"
+            Offset="60,60"
+            Radius="100"
+            Opacity="0.8 " />
+            </Grid.Shadow>
+        </Grid>
+
+        <ScrollView Grid.Row="2">
+            <ListView x:Name="FlowView" RowHeight="70">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Album.Cover}" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" Grid.Column="0" />
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" Padding="10">
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Artist.Name}" FontSize="Small" />
+                                </StackLayout>
+                                <Label Text="{Binding Duration}" Grid.Column="2" HorizontalOptions="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+
+
+</ContentPage>
